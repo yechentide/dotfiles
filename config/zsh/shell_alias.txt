@@ -1,7 +1,8 @@
 #################################   ALIAS   #################################
 
 alias showall255color="seq 0 255 | xargs -I {} printf '\033[38;5;{}m{}'"
-alias ls='ls -G'
+#alias ls='ls -G' # for MacOS
+alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
