@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -u
 
-./scripts/check_environment.sh
+~/dotfiles/scripts/check_environment.sh
 echo $SHELL | grep zsh > /dev/null 2>&1
 if [[ $? == 1 ]]; then
 	chsh -s "$(which zsh)"
@@ -15,7 +15,7 @@ mv ~/.bash* ~/.bash.bak > /dev/null 2>&1
 mv ~/.profile ~/.bash.bak > /dev/null 2>&1
 
 ###### Zinit
-./scripts/install_zinit.sh
+~/dotfiles/scripts/install_zinit.sh
 sed -i -e "1i #################################   Zinit   #################################\n" ~/.zshrc
 echo "" >> ~/.zshrc
 
