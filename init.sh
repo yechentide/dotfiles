@@ -1,38 +1,21 @@
 #!/usr/bin/env bash
-# command > /dev/null 2>&1
-# ln -s オリジナルファイル シンボリックリンク（影分身、ポインタ）
 set -u
 
-groups $(whoami) | grep sudo > /dev/null 2>&1
-if [[ $? == 1 ]]; then
-	echo "権限ないのでinstallationをスキップ"
-	which zsh > /dev/null 2>&1
-	if [[ $? == 1 ]]; then
-		echo "zshがインストールされていないので、スクリプトを中止"
-		exit 1
-	fi
-fi
-sudo timedatectl set-timezone Asia/Tokyo
-sudo apt update && apt upgrade -y > /dev/null 2>&1
-sudo apt install -y zsh tree jq > /dev/null 2>&1
-
-cd ~
-#git clone ......... > /dev/null 2>&1
-#chmod u+x dotfiles/*.sh
-
+./scripts/check_environment.sh
 echo $SHELL | grep zsh > /dev/null 2>&1
 if [[ $? == 1 ]]; then
 	chsh -s "$(which zsh)"
-	echo "再ログインしてください"
-	echo ""
+	echo "再ログインしてください"; echo ""
 	exit 1
 fi
+
+cd ~
 mkdir ~/.bash.bak
 mv ~/.bash* ~/.bash.bak > /dev/null 2>&1
 mv ~/.profile ~/.bash.bak > /dev/null 2>&1
 
 ###### Zinit
-~/dotfiles/scripts/install_zinit.sh
+./scripts/install_zinit.sh
 sed -i -e "1i #################################   Zinit   #################################\n" ~/.zshrc
 echo "" >> ~/.zshrc
 
