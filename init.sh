@@ -40,5 +40,9 @@ echo "" >> ~/.zshrc
 cat ~/dotfiles/config/zsh/zsh_config.txt >> ~/.zshrc
 cat ~/dotfiles/config/zsh/shell_alias.txt >> ~/.zshrc
 
+# git config (.gitignore_global)
+ln -s ~/dotfiles/config/vim/vim_config.txt ~/.vimrc
+ln -s ~/dotfiles/config/tmux/tmux_config.txt ~/.tmux.conf
+
 echo "全ての設定が完了しました。再ログインして、以下のコマンドを実行してください。"
 echo "zinit self-update"
