@@ -53,8 +53,8 @@ function install_zinit_and_setup_zshrc() {
 
 	sed -i -e "1i #################################   Zinit   #################################\n" ~/.zshrc
 	echo '' >> ~/.zshrc
-
-	###### .zshrc
+	echo '#############################################################################' >> ~/.zshrc
+	echo '' >> ~/.zshrc
 	echo 'source ~/dotfiles/config/zsh/zsh_history.sh' >> ~/.zshrc
 	echo 'source ~/dotfiles/config/zsh/shell_alias.sh' >> ~/.zshrc
 	echo 'source ~/dotfiles/config/zsh/zsh_custom.sh' >> ~/.zshrc
