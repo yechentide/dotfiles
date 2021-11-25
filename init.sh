@@ -1,31 +1,92 @@
 #!/usr/bin/env bash
 set -u
+# git clone https://github.com/yechentide/dotfiles.git
 
-~/dotfiles/scripts/check_environment.sh
-echo $SHELL | grep zsh > /dev/null 2>&1
-if [[ $? == 1 ]]; then
-	chsh -s "$(which zsh)"
-	echo "再ログインしてください"; echo ""
-	exit 1
-fi
+OS='unsupported'
 
-cd ~
-mkdir ~/.bash.bak
-mv ~/.bash* ~/.bash.bak > /dev/null 2>&1
-mv ~/.profile ~/.bash.bak > /dev/null 2>&1
+function checkOS() {
+	if [[ $(uname) == 'Darwin' ]]; then OS='MacOS'; return 0; fi
 
-###### Zinit
-~/dotfiles/scripts/install_zinit.sh
-sed -i -e "1i #################################   Zinit   #################################\n" ~/.zshrc
-echo "" >> ~/.zshrc
+	if grep '^NAME="Ubuntu' /etc/os-release >/dev/null; then
+		OS='Ubuntu'
+	elif grep '^NAME="CentOS' /etc/os-release >/dev/null; then
+		OS='CentOS'
+	elif grep '^NAME="Amazon' /etc/os-release >/dev/null; then
+		OS='Amazon Linux'
+	else
+		echo 'Your platform is not supported.'
+		uname -a
+		exit 1
+	fi
+}
+checkOS
 
-###### .zshrc
-cat ~/dotfiles/config/zsh/zsh_config.txt >> ~/.zshrc
-cat ~/dotfiles/config/zsh/shell_alias.txt >> ~/.zshrc
+function install_dependencies() {
+	if [[ $OS == 'MacOS' ]]; groups $(whoami) | grep admin >/dev/null; then
+		if which brew >/dev/null; then
+			# install some tools ......
+		fi
+	fi
 
-# git config (.gitignore_global)
-ln -s ~/dotfiles/config/vim/vim_config.txt ~/.vimrc
-ln -s ~/dotfiles/config/tmux/tmux_config.txt ~/.tmux.conf
+	if [[ $OS == 'Ubuntu' ]]; groups $(whoami) | grep sudo >/dev/null; then
+		sudo timedatectl set-timezone Asia/Tokyo
+		sudo apt update && apt upgrade -y > /dev/null 2>&1
+		sudo apt install -y zsh tree jq > /dev/null 2>&1
+	fi
+
+	if ! which zsh >/dev/null; then
+		echo 'zshがインストールされていません！'
+		echo '権限を確認してください！'
+		exit 1
+	fi
+	if ! echo $SHELL | grep zsh > /dev/null 2>&1; then
+		chsh -s "$(which zsh)"
+		echo "再ログインしてください"; echo ""
+		exit 0
+	fi
+}
+install_dependencies
+
+function install_zinit_and_setup_zshrc() {
+	sh -c "$(curl -fsSL https://git.io/zinit-install)"
+	cat ~/dotfiles/config/zsh/zinit-pluginsAndTheme.txt >> ~/.zshrc
+
+	sed -i "1d" ~/.zshrc
+	echo ''; echo 'powerlevel10kの設定が終わったら、exitを入力してください。'; echo ''
+	sleep 3
+	exec $SHELL -l
+	#zinit self-update
+	sed -i -e "1i #################################   Zinit   #################################\n" ~/.zshrc
+	echo '' >> ~/.zshrc
+
+	###### .zshrc
+	echo 'source ~/dotfiles/config/zsh/zsh_history.sh' >> ~/.zshrc
+	echo 'source ~/dotfiles/config/zsh/shell_alias.sh' >> ~/.zshrc
+	echo 'source ~/dotfiles/config/zsh/zsh_custom.sh' >> ~/.zshrc
+}
+function create_symbolic_links() {
+	# git config (.gitignore_global)
+	ln -s ~/dotfiles/config/vim/vim_config.txt ~/.vimrc
+	ln -s ~/dotfiles/config/tmux/tmux_config.txt ~/.tmux.conf
+}
+install_zinit_and_setup_zshrc
+create_symbolic_links
 
 echo "全ての設定が完了しました。再ログインして、以下のコマンドを実行してください。"
 echo "zinit self-update"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
