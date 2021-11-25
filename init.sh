@@ -69,19 +69,3 @@ create_symbolic_links
 
 echo "全ての設定が完了しました。再ログインして、以下のコマンドを実行してください。"
 echo "zinit self-update"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
