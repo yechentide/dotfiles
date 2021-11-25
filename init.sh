@@ -24,7 +24,7 @@ checkOS
 function install_dependencies() {
 	if [[ $OS == 'MacOS' ]]; groups $(whoami) | grep admin >/dev/null; then
 		if which brew >/dev/null; then
-			# install some tools ......
+			echo 'install some tools ......'
 		fi
 	fi
 
@@ -40,6 +40,7 @@ function install_dependencies() {
 		exit 1
 	fi
 	if ! echo $SHELL | grep zsh > /dev/null 2>&1; then
+		echo 'シェルをzshに変えますので、パスワードを入力してください。'
 		chsh -s "$(which zsh)"
 		echo "再ログインしてください"; echo ""
 		exit 0
@@ -48,14 +49,8 @@ function install_dependencies() {
 install_dependencies
 
 function install_zinit_and_setup_zshrc() {
-	sh -c "$(curl -fsSL https://git.io/zinit-install)"
-	cat ~/dotfiles/config/zsh/zinit-pluginsAndTheme.txt >> ~/.zshrc
+	~/dotfiles/scripts/install_zsh_plugins.sh
 
-	sed -i "1d" ~/.zshrc
-	echo ''; echo 'powerlevel10kの設定が終わったら、exitを入力してください。'; echo ''
-	sleep 3
-	exec $SHELL -l
-	#zinit self-update
 	sed -i -e "1i #################################   Zinit   #################################\n" ~/.zshrc
 	echo '' >> ~/.zshrc
 
