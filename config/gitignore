@@ -1,0 +1,29 @@
+# cf. https://github.com/github/gitignore
+# cf. https://www.toptal.com/developers/gitignore
+# cf. https://qiita.com/higan96/items/36d3877a85ab8fc36ea7
+
+# Created by https://www.toptal.com/developers/gitignore/api/xcode
+# Edit at https://www.toptal.com/developers/gitignore?templates=xcode
+
+## User settings
+### プロジェクトのカスタムschemeが保存されるディレクトリ
+xcuserdata/
+
+### Xcode Patch ###
+### プロジェクトファイルのパッケージ（ディレクトリ）の全体を除外し、必要なものだけ追加（除外からの除外）をしていきます
+*.xcodeproj/*
+### プロジェクトの構成情報を格納するファイル
+!*.xcodeproj/project.pbxproj
+### XcodeのプロジェクトのビルドSchemeを格納するファイル
+!*.xcodeproj/xcshareddata/
+### プロジェクトのワークスペースのデータを格納するXMLファイル
+!*.xcworkspace/contents.xcworkspacedata
+
+### 「File > Workspace Settings」で設定できるワークスペースの設定値。
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+## Gcc Patch
+### コードカバレッジの計測を有効化（GCC_GENERATE_TEST_COVERAGE_FILES = YES）していると生成される。
+### 他のケースでも生成されるかもしれないが分からなかった
+### https://developer.apple.com/library/archive/qa/qa1514/_index.html
+/*.gcno
