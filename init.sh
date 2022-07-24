@@ -1,71 +1,55 @@
 #!/usr/bin/env bash
-set -u
-# git clone https://github.com/yechentide/dotfiles.git
+set -eu
 
-OS='unsupported'
+declare -r ROOT_DIR="$HOME/dotfiles"
+declare -r CACHE_DIR="$ROOT_DIR/.cache"
+declare -r ARRAY_PATH="$CACHE_DIR/array"
+declare -r ANSWER_PATH="$CACHE_DIR/answer"
 
-function checkOS() {
-    if [[ $(uname) == 'Darwin' ]]; then OS='MacOS'; return 0; fi
+export PATH="$ROOT_DIR/bin:$PATH"
+declare lib=''
+for lib in $(ls $ROOT_DIR/lib/*.sh); do source $lib; done
 
-    if grep '^NAME="Ubuntu' /etc/os-release >/dev/null; then
-        OS='Ubuntu'
-    elif grep '^NAME="CentOS' /etc/os-release >/dev/null; then
-        OS='CentOS'
-    elif grep '^NAME="Amazon' /etc/os-release >/dev/null; then
-        OS='Amazon Linux'
-    else
-        echo 'Your platform is not supported.'
-        uname -a
-        exit 1
-    fi
-}
-checkOS
+##############################################################################################
 
-function install_dependencies() {
-    if [[ $OS == 'MacOS' ]]; groups $(whoami) | grep admin >/dev/null; then
-        if which brew >/dev/null; then
-            echo 'install some tools ......'
+if [[ $# == 0 ]]; then color_print error 'サブコマンドを指定してください!'; exit 1; fi
+if [[ ! -e $CACHE_DIR ]]; then mkdir $CACHE_DIR; fi
+if [[ ! -e $ARRAY_PATH ]]; then touch $ARRAY_PATH; fi
+if [[ ! -e $ANSWER_PATH ]]; then touch $ANSWER_PATH; fi
+
+case $1 in
+    'apps')
+        color_print info 'setup'
+        if [[ ! $(uname) == 'Darwin' ]]; then color_print error "${1} 機能はMacOSのみをサポートしています..."; exit 1; fi
+
+        install_homebrew
+        install_basic_apps
+        install_dev_apps
+        install_tool_apps
+        install_design_apps
+
+        add_git_config
+        ;;
+    'shell')
+        if ! which zsh >/dev/null; then
+            color_print error 'zshがインストールされていません!'
+            exit 1
         fi
-    fi
+        if ! echo $SHELL | grep zsh > /dev/null 2>&1; then
+            color_print info 'シェルをzshに変えますので、パスワードを入力してください。'
+            chsh -s "$(which zsh)"
+            color_print info "再ログインしてください"; echo ""
+            exit 0
+        fi
 
-    if [[ $OS == 'Ubuntu' ]]; groups $(whoami) | grep sudo >/dev/null; then
-        sudo timedatectl set-timezone Asia/Tokyo
-        sudo apt update && apt upgrade -y > /dev/null 2>&1
-        sudo apt install -y zsh tree jq > /dev/null 2>&1
-    fi
+        # For Linux:
+        # sudo timedatectl set-timezone Asia/Tokyo
 
-    if ! which zsh >/dev/null; then
-        echo 'zshがインストールされていません！'
-        echo '権限を確認してください！'
-        exit 1
-    fi
-    if ! echo $SHELL | grep zsh > /dev/null 2>&1; then
-        echo 'シェルをzshに変えますので、パスワードを入力してください。'
-        chsh -s "$(which zsh)"
-        echo "再ログインしてください"; echo ""
-        exit 0
-    fi
-}
-install_dependencies
-
-function install_zinit_and_setup_zshrc() {
-    ~/dotfiles/scripts/install_zsh_plugins.sh
-
-    sed -i -e "1i #################################   Zinit   #################################\n" ~/.zshrc
-    echo '' >> ~/.zshrc
-    echo '#############################################################################' >> ~/.zshrc
-    echo '' >> ~/.zshrc
-    echo 'source ~/dotfiles/config/zsh/zsh_history.sh' >> ~/.zshrc
-    echo 'source ~/dotfiles/config/zsh/shell_alias.sh' >> ~/.zshrc
-    echo 'source ~/dotfiles/config/zsh/zsh_custom.sh' >> ~/.zshrc
-}
-function create_symbolic_links() {
-    # git config (.gitignore_global)
-    ln -s ~/dotfiles/config/vim/vim_config.txt ~/.vimrc
-    ln -s ~/dotfiles/config/tmux/tmux_config.txt ~/.tmux.conf
-}
-install_zinit_and_setup_zshrc
-create_symbolic_links
-
-echo "全ての設定が完了しました。再ログインして、以下のコマンドを実行してください。"
-echo "zinit self-update"
+        install_zinit_and_setup_zshrc
+        color_print success "全ての設定が完了しました。再ログインして、以下のコマンドを実行してください。"
+        color_print info "zinit self-update"
+        ;;
+    *)
+        color_print warn "サブコマンド ${1} は対応していません!"
+        ;;
+esac

@@ -1,5 +1,6 @@
 #################################   ALIAS   #################################
 
+alias battery-info='ioreg -c AppleSmartBattery | grep -i Capacity'
 function show-colors-combi() { clear; for fore in `seq 30 37`; do printf "\e[${fore}m \\\e[${fore}m \e[m\n"; for mode in 1 4 5; do printf "\e[${fore};${mode}m \\\e[${fore};${mode}m \e[m"; for back in `seq 40 47`; do printf "\e[${fore};${back};${mode}m \\\e[${fore};${back};${mode}m \e[m"; done; echo; done; echo; done; printf " \\\e[m\n" }
 alias show-255colors="seq 0 255 | xargs -I {} printf '\033[38;5;{}m{} '"
 #alias ls='ls -G' # for MacOS
