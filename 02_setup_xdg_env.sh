@@ -29,4 +29,5 @@ if [[ ! -e $XDG_CONFIG_HOME/git ]]; then mkdir -p "$XDG_CONFIG_HOME/git"; fi
 if [[ ! -e $XDG_CONFIG_HOME/tmux ]]; then mkdir -p "$XDG_CONFIG_HOME/tmux"; fi
 if [[ ! -e $XDG_CONFIG_HOME/npm ]]; then mkdir -p "$XDG_CONFIG_HOME/npm"; fi
 
+if [[ ! -e $XDG_CACHE_HOME/zsh ]]; then mkdir -p "$XDG_CACHE_HOME/zsh"; fi
 if [[ ! -e $XDG_DATA_HOME/npm ]]; then mkdir -p "$XDG_DATA_HOME/npm/lib"; fi

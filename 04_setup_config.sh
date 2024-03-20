@@ -14,6 +14,7 @@ set -u
 ########## ########## ########## ########## ########## ##########
 
 {
+    echo ''
     echo "source $ROOT_DIR/config/zsh/zsh_history.sh"
     echo "source $ROOT_DIR/config/zsh/shell_alias.sh"
     echo "source $ROOT_DIR/config/zsh/exports.sh"
