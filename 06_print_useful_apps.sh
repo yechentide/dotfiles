@@ -33,7 +33,7 @@ divider
 color_print -n tip '[GUI - インストール]'
 color_print -n info 'google-chrome   steam   iina   deepl'
 color_print -n info 'orbstack   coteditor   sublime-text   boop   snipaste   rapidapi'
-color_print -n info 'godot   magicavoxel   mindmaster   figma   iconizer'
+color_print -n info 'magicavoxel   inkscape   blender   godot   mindmaster   figma   iconizer'
 color_print -n info 'keycastr   kap   balenaetcher   mediahuman-audio-converter'
 color_print -n info 'wireshark   charles   teamviewer   vnc-viewer'
 color_print -n info '下载器:   folx   qbittorrent   downie'
