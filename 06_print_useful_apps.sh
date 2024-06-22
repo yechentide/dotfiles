@@ -23,7 +23,8 @@ color_print -n tip '[CLI - インストール] '
 color_print -n info 'wget   gnu-sed   neofetch   smartmontools'
 color_print -n info 'moreutils   dateutils   coreutils   gnutls'
 color_print -n info 'htop   ffmpeg   imagemagick   nmap   arp-scan'
-color_print -n info 'termius   cmake   goose   sqlc'
+color_print -n info 'cmake   goose   sqlc   ollama'
+color_print -n info 'luajit'
 
 divider
 color_print -n tip '[CLI - 更新]'
@@ -31,13 +32,14 @@ color_print -n info 'zsh   git   rsync'
 
 divider
 color_print -n tip '[GUI - インストール]'
-color_print -n info 'google-chrome   steam   iina   deepl'
-color_print -n info 'orbstack   coteditor   sublime-text   boop   snipaste   rapidapi'
-color_print -n info 'magicavoxel   inkscape   blender   godot   mindmaster   figma   iconizer'
+color_print -n info 'google-chrome   steam   iina'
+color_print -n info 'orbstack   coteditor   sublime-text   boop   snipaste   rapidapi   termius'
+color_print -n info 'magicavoxel   inkscape   blender   godot   mindmaster   figma   iconizer   obs'
 color_print -n info 'keycastr   kap   balenaetcher   mediahuman-audio-converter'
 color_print -n info 'wireshark   charles   teamviewer   vnc-viewer'
 color_print -n info '下载器:   folx   qbittorrent   downie'
 color_print -n info 'NTFS软件:   ntfstool   paragon-ntfs   tuxera-ntfs'
+color_print -n info 'chatgpt   miro   tableplus   temurin   pgadmin4   intellij-idea-ce'
 
 divider
 color_print -n tip '[App Store - インストール]'

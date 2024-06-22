@@ -26,7 +26,8 @@ fi
 
 logger -p info 'コマンドラインツールをインストールします...'
 count_down 3
-brew install --formula cloc fnm go jq shellcheck swiftlint tealdeer tmux tree
+brew install --formula cloc jq tealdeer tmux tree
+brew install --formula fnm go shellcheck swiftlint
 
 logger -p info 'GUIをインストールします...'
 count_down 3
