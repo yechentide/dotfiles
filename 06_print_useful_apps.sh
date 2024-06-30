@@ -20,7 +20,7 @@ function divider() {
 
 divider
 color_print -n tip '[CLI - インストール] '
-color_print -n info 'wget   gnu-sed   neofetch   smartmontools'
+color_print -n info 'wget   gnu-sed   fastfetch   smartmontools'
 color_print -n info 'moreutils   dateutils   coreutils   gnutls'
 color_print -n info 'htop   ffmpeg   imagemagick   nmap   arp-scan'
 color_print -n info 'cmake   goose   sqlc   ollama'
