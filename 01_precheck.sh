@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC1091
+# shellcheck disable=SC1091,SC2034
 set -eu
 
 ########## ########## ########## ########## ########## ##########
@@ -15,8 +15,10 @@ set -u
 
 if [[ $(uname) == 'Darwin' ]]; then
     logger -p info 'OS: MacOS'
+    OS='macos'
 elif [[ $(uname) == 'Linux' ]]; then
     logger -p info 'OS: Linux'
+    OS='linux'
 else
     logger -p error "このOSでは使えません: $(uname)"
     exit 1

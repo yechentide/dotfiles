@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC1091
+# shellcheck disable=SC1091,SC2086
 set -eu
 
 ########## ########## ########## ########## ########## ##########
@@ -9,6 +9,7 @@ if [[ -z $ROOT_DIR ]]; then
     dotfiles_dir="$(cd "$(dirname "$0")"; pwd)"
     declare -r dotfiles_dir
     source "$dotfiles_dir/00_constants.sh"
+    source "$dotfiles_dir/01_precheck.sh"
 fi
 set -u
 ########## ########## ########## ########## ########## ##########
@@ -17,7 +18,12 @@ set -u
 
 logger -p info 'XDGのディレクトリ群を作成します...'
 
-sudo cp "$ROOT_DIR/config/zsh/zshenv" /etc/zshenv
+if [[ $OS == 'macos' ]]; then
+    sudo cp "$ROOT_DIR/config/zsh/zshenv" /etc/zshenv
+elif [[ $OS == 'linux' ]]; then
+    sudo cp "$ROOT_DIR/config/zsh/zshenv" ~/.zshenv
+fi
+
 if [[ ! -e $XDG_CONFIG_HOME ]]; then mkdir -p "$XDG_CONFIG_HOME"; fi
 if [[ ! -e $XDG_CACHE_HOME ]]; then mkdir -p "$XDG_CACHE_HOME"; fi
 if [[ ! -e $XDG_DATA_HOME ]]; then mkdir -p "$XDG_DATA_HOME"; fi
