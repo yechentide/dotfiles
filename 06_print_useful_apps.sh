@@ -40,6 +40,7 @@ color_print -n info 'wireshark   charles   teamviewer   vnc-viewer'
 color_print -n info '下载器:   folx   qbittorrent   downie'
 color_print -n info 'NTFS软件:   ntfstool   paragon-ntfs   tuxera-ntfs'
 color_print -n info 'chatgpt   miro   tableplus   temurin   pgadmin4   intellij-idea-ce'
+color_print -n info 'betterdisplay macs-fan-control responsively'
 
 divider
 color_print -n tip '[App Store - インストール]'
