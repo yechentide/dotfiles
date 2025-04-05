@@ -5,6 +5,7 @@
 alias show-255colors="seq 0 255 | xargs -I {} printf '\033[38;5;{}m{} '"
 alias battery-info='ioreg -c AppleSmartBattery | grep -i Capacity'
 alias PlistBuddy='/usr/libexec/PlistBuddy'
+alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash'
 alias rscp='rsync -zh --progress'
 
 alias ls='ls --color=auto'

@@ -33,14 +33,14 @@ color_print -n info 'zsh   git   rsync'
 divider
 color_print -n tip '[GUI - インストール]'
 color_print -n info 'google-chrome   steam   iina'
-color_print -n info 'orbstack   coteditor   sublime-text   boop   snipaste   rapidapi   termius'
+color_print -n info 'orbstack   coteditor   sublime-text   boop   snipaste   termius   rapidapi   hoppscotch   bruno'
 color_print -n info 'magicavoxel   inkscape   blender   godot   mindmaster   figma   iconizer   obs'
 color_print -n info 'keycastr   kap   balenaetcher   mediahuman-audio-converter'
 color_print -n info 'wireshark   charles   teamviewer   vnc-viewer'
 color_print -n info '下载器:   folx   qbittorrent   downie'
 color_print -n info 'NTFS软件:   ntfstool   paragon-ntfs   tuxera-ntfs'
 color_print -n info 'chatgpt   miro   tableplus   temurin   pgadmin4   intellij-idea-ce'
-color_print -n info 'betterdisplay macs-fan-control responsively'
+color_print -n info 'betterdisplay   macs-fan-control   responsively   karabiner-elements   mos'
 
 divider
 color_print -n tip '[App Store - インストール]'

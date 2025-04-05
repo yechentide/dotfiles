@@ -31,7 +31,7 @@ brew install --formula fnm go shellcheck swiftlint
 
 logger -p info 'GUIをインストールします...'
 count_down 3
-brew install --cask hex-fiend iterm2 itsycal keka maccy obsidian rectangle shottr stats visual-studio-code sf-symbols hiddenbar
+brew install --cask hex-fiend iterm2 itsycal keka maccy obsidian rectangle loop shottr stats visual-studio-code sf-symbols hiddenbar
 
 logger -p info '次のGUIアプリはApp Storeからインストールしてください'
 color_print -n tip 'Xcode, Pixelmator, Logoist, Tunacan2, Developer, TestFlight, MotionScape, Mockview, Interactful'
