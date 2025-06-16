@@ -20,6 +20,9 @@ alias ....='cd ../../..'
 alias python='python3'
 alias pip='pip3'
 
+alias v='nvim'
+alias vim='nvim'
+
 #################################   ALIAS - Git   #################################
 
 alias gpush='git push'
@@ -41,11 +44,13 @@ alias gbb='git switch -'
 alias gbc='git switch -c'
 
 alias ga='git add'
+alias gau='git add -u'
 alias gan='git add -n'
 alias gaa='git add -A'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gca='git commit --amend'
+alias gca-now='git commit --amend --date "$(date -R)"'
 
 alias gsl='git stash list'
 alias gss='git stash save'
@@ -58,6 +63,9 @@ alias gll='git log --first-parent --graph --abbrev-commit --decorate'
 alias glo='git log --oneline'
 
 alias gd='git diff'
+alias gdcp='git diff | pbcopy'
+alias gds='git diff --staged'
+alias gdscp='git diff --staged | pbcopy'
 alias gdn2="git log -n 2 | grep '^commit' | tr '\n' ' ' | awk '{printf \"%s %s\", \$4, \$2}' | xargs git diff"
 
 alias gr='git restore'
