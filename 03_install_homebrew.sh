@@ -23,15 +23,3 @@ else
     logger -p error 'Homebrewのインストールが失敗しました'
     exit 1
 fi
-
-logger -p info 'コマンドラインツールをインストールします...'
-count_down 3
-brew install --formula cloc jq tealdeer tmux tree
-brew install --formula fnm go shellcheck swiftlint
-
-logger -p info 'GUIをインストールします...'
-count_down 3
-brew install --cask hex-fiend iterm2 itsycal keka maccy obsidian rectangle loop shottr stats visual-studio-code sf-symbols hiddenbar
-
-logger -p info '次のGUIアプリはApp Storeからインストールしてください'
-color_print -n tip 'Xcode, Pixelmator, Logoist, Tunacan2, Developer, TestFlight, MotionScape, Mockview, Interactful'

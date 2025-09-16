@@ -20,13 +20,18 @@ logger -p info 'XDGのディレクトリ群を作成します...'
 
 if [[ $OS == 'macos' ]]; then
     sudo cp "$ROOT_DIR/config/zsh/zshenv" /etc/zshenv
+    echo '/etc/zshenv'
 elif [[ $OS == 'linux' ]]; then
-    sudo cp "$ROOT_DIR/config/zsh/zshenv" ~/.zshenv
+    sudo cp "$ROOT_DIR/config/zsh/zshenv" "$HOME/.zshenv"
+    echo "$HOME/.zshenv"
 fi
 
 if [[ ! -e $XDG_CONFIG_HOME ]]; then mkdir -p "$XDG_CONFIG_HOME"; fi
 if [[ ! -e $XDG_CACHE_HOME ]]; then mkdir -p "$XDG_CACHE_HOME"; fi
 if [[ ! -e $XDG_DATA_HOME ]]; then mkdir -p "$XDG_DATA_HOME"; fi
+echo "$XDG_CONFIG_HOME"
+echo "$XDG_CACHE_HOME"
+echo "$XDG_DATA_HOME"
 
 logger -p info 'ツール系の設定ファイル用ディレクトリ群を作成します...'
 
@@ -34,6 +39,12 @@ if [[ ! -e $XDG_CONFIG_HOME/zsh ]]; then mkdir -p "$XDG_CONFIG_HOME/zsh"; fi
 if [[ ! -e $XDG_CONFIG_HOME/git ]]; then mkdir -p "$XDG_CONFIG_HOME/git"; fi
 if [[ ! -e $XDG_CONFIG_HOME/tmux ]]; then mkdir -p "$XDG_CONFIG_HOME/tmux"; fi
 if [[ ! -e $XDG_CONFIG_HOME/npm ]]; then mkdir -p "$XDG_CONFIG_HOME/npm"; fi
+echo "$XDG_CONFIG_HOME/zsh"
+echo "$XDG_CONFIG_HOME/git"
+echo "$XDG_CONFIG_HOME/tmux"
+echo "$XDG_CONFIG_HOME/npm"
 
 if [[ ! -e $XDG_CACHE_HOME/zsh ]]; then mkdir -p "$XDG_CACHE_HOME/zsh"; fi
 if [[ ! -e $XDG_DATA_HOME/npm ]]; then mkdir -p "$XDG_DATA_HOME/npm/lib"; fi
+echo "$XDG_CACHE_HOME/zsh"
+echo "$XDG_DATA_HOME/npm/lib"

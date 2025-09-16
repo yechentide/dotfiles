@@ -24,7 +24,7 @@ color_print -n info 'wget   gnu-sed   fastfetch   smartmontools'
 color_print -n info 'moreutils   dateutils   coreutils   gnutls'
 color_print -n info 'htop   ffmpeg   imagemagick   nmap   arp-scan'
 color_print -n info 'cmake   goose   sqlc   ollama'
-color_print -n info 'luajit'
+color_print -n info 'luajit   swiftdraw'
 
 divider
 color_print -n tip '[CLI - 更新]'
@@ -32,8 +32,8 @@ color_print -n info 'zsh   git   rsync'
 
 divider
 color_print -n tip '[GUI - インストール]'
-color_print -n info 'google-chrome   steam   iina'
-color_print -n info 'orbstack   coteditor   sublime-text   boop   snipaste   termius   rapidapi   hoppscotch   bruno'
+color_print -n info 'steam   iina   obsidian   rectangle   hiddenbar'
+color_print -n info 'coteditor   sublime-text   boop   snipaste   termius   rapidapi   hoppscotch   bruno'
 color_print -n info 'magicavoxel   inkscape   blender   godot   mindmaster   figma   iconizer   obs'
 color_print -n info 'keycastr   kap   balenaetcher   mediahuman-audio-converter'
 color_print -n info 'wireshark   charles   teamviewer   vnc-viewer'

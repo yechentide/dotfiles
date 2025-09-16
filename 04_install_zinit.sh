@@ -16,6 +16,7 @@ set -u
 logger -p info 'zinitをインストールします...'
 
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-cat "$ROOT_DIR/config/zsh/zinit_plugins_and_theme.txt" >> "$XDG_CONFIG_HOME/zsh/.zshrc"
 
-logger -p info 'ターミナルを開き直して、zinit self-update を実行してください'
+logger -p info "$ROOT_DIR/config/zsh/zinit_plugins_and_theme.txt の設定を参照し、"
+logger -p info "必要なものを $XDG_CONFIG_HOME/zsh/.zshrc に追記してください。"
+logger -p info 'それが終わったらターミナルを開き直して、zinit self-update を実行してください'
