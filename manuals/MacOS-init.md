@@ -25,11 +25,6 @@
 - Xcode
 - Homebrew
 
-- ウィジェットの整理
-- いらないアプリを削除
-- Dockを整理する
-- Launchpadを整理する
-
 ## dotfiles
 
 ```bash
