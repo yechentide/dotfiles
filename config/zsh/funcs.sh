@@ -27,3 +27,17 @@ function remove_spm_cache() {
     rm -rf ~/Library/Caches/org.swift.swiftpm
     rm -rf ~/Library/org.swift.swiftpm
 }
+
+function remove_xcode_preview_cache() {
+    echo "Closing Xcode..."
+    osascript -e 'tell application "Xcode" to quit'
+
+    sleep 2
+
+    echo "Removing Xcode preview cache..."
+    xcrun simctl --set previews delete all
+    rm -rf ~/Library/Developer/Xcode/UserData/Previews
+    rm -rf ~/Library/Developer/CoreSimulator/Caches
+
+    echo "Done!"
+}

@@ -17,12 +17,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-alias python='python3'
-alias pip='pip3'
-
-alias v='nvim'
-alias vim='nvim'
-
 #################################   ALIAS - Git   #################################
 
 alias gpush='git push'
