@@ -4,17 +4,20 @@ zinit light "zsh-users/zsh-completions"
 zinit light "zsh-users/zsh-autosuggestions"
 zinit ice wait'1' lucid; zinit light "zdharma-continuum/fast-syntax-highlighting"
 zinit ice wait'1' lucid; zinit light "paulirish/git-open"
-#zinit ice wait'1' lucid pick'init.sh'; zinit light "b4b4r07/enhancd"
-#zinit light "marlonrichert/zsh-autocomplete"
-#zinit light "chrissicool/zsh-256color"
 
 # テーマ
-# Load powerlevel10k theme
-zinit ice depth"1"; zinit light romkatv/powerlevel10k
-# Load pure theme
-#zinit ice pick"async.zsh" src"pure.zsh"; zinit light sindresorhus/pure
-# Load starship theme
-#zinit ice as"command" from"gh-r" \ # `starship` binary as command, from github release
-#          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-#          atpull"%atclone" src"init.zsh" # pull behavior same as clone, source init.zsh
-#zinit light starship/starship
+## Load starship theme
+## line 1: `starship` binary as command, from github release
+## line 2: starship setup at clone(create init.zsh, completion)
+## line 3: pull behavior same as clone, source init.zsh
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh"
+zinit light starship/starship
+
+## Load powerlevel10k theme
+# zinit ice depth"1" # git clone depth
+# zinit light romkatv/powerlevel10k
+## Load pure theme
+# zinit ice pick"async.zsh" src"pure.zsh" # with zsh-async library that's bundled with it.
+# zinit light sindresorhus/pure
