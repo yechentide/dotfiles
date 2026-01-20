@@ -29,9 +29,11 @@ fi
 if [[ ! -e $XDG_CONFIG_HOME ]]; then mkdir -p "$XDG_CONFIG_HOME"; fi
 if [[ ! -e $XDG_CACHE_HOME ]]; then mkdir -p "$XDG_CACHE_HOME"; fi
 if [[ ! -e $XDG_DATA_HOME ]]; then mkdir -p "$XDG_DATA_HOME"; fi
+if [[ ! -e $XDG_STATE_HOME ]]; then mkdir -p "$XDG_STATE_HOME"; fi
 echo "$XDG_CONFIG_HOME"
 echo "$XDG_CACHE_HOME"
 echo "$XDG_DATA_HOME"
+echo "$XDG_STATE_HOME"
 
 logger -p info 'ツール系の設定ファイル用ディレクトリ群を作成します...'
 
