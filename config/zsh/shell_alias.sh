@@ -13,9 +13,6 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias l='clear && ls -la'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
 
 #################################   ALIAS - Git   #################################
 
