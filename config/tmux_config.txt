@@ -4,6 +4,9 @@ set -g prefix C-q
 # C-bのキーバインドを解除
 unbind C-b
 
+# C-kでスクロール履歴をクリア
+bind C-k clear-history
+
 # | でペインを横分割する
 bind | split-window -h
 
