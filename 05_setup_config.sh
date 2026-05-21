@@ -22,6 +22,7 @@ set -u
 } >> "$XDG_CONFIG_HOME/zsh/.zshrc"
 
 logger -p info 'symbolicリンクを作成します...'
+ln -s "$ROOT_DIR/config/zsh/starship-remote.toml" "$XDG_CONFIG_HOME/starship.toml"
 ln -s "$ROOT_DIR/config/vim_config.txt" ~/.vimrc
 ln -s "$ROOT_DIR/config/tmux_config.txt" "$XDG_CONFIG_HOME/tmux/tmux.conf"
 ln -s "$ROOT_DIR/config/npmrc.txt" "$XDG_CONFIG_HOME/npm/npmrc"

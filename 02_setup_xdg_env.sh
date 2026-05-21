@@ -50,3 +50,5 @@ if [[ ! -e $XDG_CACHE_HOME/zsh ]]; then mkdir -p "$XDG_CACHE_HOME/zsh"; fi
 if [[ ! -e $XDG_DATA_HOME/npm ]]; then mkdir -p "$XDG_DATA_HOME/npm/lib"; fi
 echo "$XDG_CACHE_HOME/zsh"
 echo "$XDG_DATA_HOME/npm/lib"
+
+logger -p info 'zshの設定を反映させるため、ターミナルを開き直してください。'
