@@ -41,7 +41,11 @@ alias gaa='git add -A'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gca='git commit --amend'
-alias gca-now='git commit --amend --date "$(date -R)"'
+
+function gca-now() {
+    local -r now="$(date -R)"
+    GIT_COMMITTER_DATE="$now" git commit --amend --date="$now"
+}
 
 alias gsl='git stash list'
 alias gss='git stash save'
@@ -49,8 +53,8 @@ alias gsa='git stash apply'
 alias gsp='git stash pop'
 alias gsd='git stash drop'
 
-alias gl='git log'
-alias gll='git log --first-parent --graph --abbrev-commit --decorate'
+alias gl='git log --pretty=fuller'
+alias gll='git log --first-parent --graph --abbrev-commit --decorate --pretty=fuller'
 alias glo='git log --oneline'
 
 alias gd='git diff'
