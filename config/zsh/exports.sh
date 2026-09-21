@@ -9,4 +9,4 @@ export DOCKER_CONFIG="${XDG_CONFIG_HOME}/docker"
 export GOPATH="${XDG_DATA_HOME}/go"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 
-export PATH="${GOPATH}/bin:${HOME}/.local/share/npm/bin:${HOME}/.local/bin:${PATH}"
+export PATH="/opt/homebrew/bin:${HOME}/.local/bin:${GOPATH}/bin:${HOME}/.local/share/npm/bin:${PATH}"
