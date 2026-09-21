@@ -13,6 +13,9 @@ bind | split-window -h
 # - でペインを縦分割する
 bind - split-window -v
 
+# Shift+Enterを受信したら改行する
+bind -n S-Enter send-keys Escape "[13;2u"
+
 # 番号基準値を変更
 set-option -g base-index 1
 
