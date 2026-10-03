@@ -1,0 +1,4 @@
+interface:
+  display_name: "Apple App Shell"
+  short_description: "Design iPhone, iPad, and Mac app navigation."
+  default_prompt: "Use $apple-app-shell to design the native navigation and settings presentation for my iPhone, iPad, and Mac app."

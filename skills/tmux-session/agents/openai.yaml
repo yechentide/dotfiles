@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tmux Session"
+  short_description: "Send input and capture output across tmux sessions"
+  default_prompt: "Use $tmux-session to send a message to another tmux target and capture its output."

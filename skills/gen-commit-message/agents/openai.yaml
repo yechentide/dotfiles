@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gen Commit Message"
+  short_description: "Drafts a repo-consistent Conventional Commit message from the current diff."
+  default_prompt: "Read the current git diff and propose a commit message that matches this repository's style."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "iOS Build"
+  short_description: "Builds the local iOS Xcode project for the iPhone 17 simulator."
+  default_prompt: "Build the local iOS app and summarize any compile errors."
