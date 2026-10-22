@@ -14,6 +14,8 @@ alias la='ls -a'
 alias lla='ls -la'
 alias l='clear && ls -la'
 
+alias trust='xattr -rd com.apple.quarantine'
+
 #################################   ALIAS - Git   #################################
 
 alias gpush='git push'
