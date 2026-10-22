@@ -40,15 +40,11 @@ logger -p info 'ツール系の設定ファイル用ディレクトリ群を作�
 if [[ ! -e $XDG_CONFIG_HOME/zsh ]]; then mkdir -p "$XDG_CONFIG_HOME/zsh"; fi
 if [[ ! -e $XDG_CONFIG_HOME/git ]]; then mkdir -p "$XDG_CONFIG_HOME/git"; fi
 if [[ ! -e $XDG_CONFIG_HOME/tmux ]]; then mkdir -p "$XDG_CONFIG_HOME/tmux"; fi
-if [[ ! -e $XDG_CONFIG_HOME/npm ]]; then mkdir -p "$XDG_CONFIG_HOME/npm"; fi
 echo "$XDG_CONFIG_HOME/zsh"
 echo "$XDG_CONFIG_HOME/git"
 echo "$XDG_CONFIG_HOME/tmux"
-echo "$XDG_CONFIG_HOME/npm"
 
 if [[ ! -e $XDG_CACHE_HOME/zsh ]]; then mkdir -p "$XDG_CACHE_HOME/zsh"; fi
-if [[ ! -e $XDG_DATA_HOME/npm ]]; then mkdir -p "$XDG_DATA_HOME/npm/lib"; fi
 echo "$XDG_CACHE_HOME/zsh"
-echo "$XDG_DATA_HOME/npm/lib"
 
 logger -p info 'zshの設定を反映させるため、ターミナルを開き直してください。'

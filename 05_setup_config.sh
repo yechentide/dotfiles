@@ -25,7 +25,6 @@ logger -p info 'symbolicリンクを作成します...'
 ln -s "$ROOT_DIR/config/zsh/starship-remote.toml" "$XDG_CONFIG_HOME/starship.toml"
 ln -s "$ROOT_DIR/config/vim_config.txt" ~/.vimrc
 ln -s "$ROOT_DIR/config/tmux_config.txt" "$XDG_CONFIG_HOME/tmux/tmux.conf"
-ln -s "$ROOT_DIR/config/npmrc.txt" "$XDG_CONFIG_HOME/npm/npmrc"
 
 if which git > /dev/null 2>&1; then
     logger -p info 'gitの設定を追加します...'
